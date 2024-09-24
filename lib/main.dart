@@ -2,7 +2,7 @@
  * @Author: kaic
  * @Date: 2024-03-07 21:09:05
  * @LastEditors: kylechandev kylechan47@gmail.com
- * @LastEditTime: 2024-09-24 21:07
+ * @LastEditTime: 2024-09-24 23:14
  * Copyright (c) 2024 by kylechandev kylechan47@gmail.com, All Rights Reserved. 
  */
 // 导入包
@@ -17,6 +17,7 @@ import 'package:flutter_demo/chapter5/C5.dart';
 import 'package:flutter_demo/chapter6/C6.dart';
 import 'package:flutter_demo/chapter6/GridViewTest.dart';
 import 'package:flutter_demo/chapter6/PageViewTest.dart';
+import 'package:flutter_demo/chapter7/c_7.dart';
 
 // 应用入口
 void main() {
@@ -40,8 +41,7 @@ class MainApp extends StatelessWidget {
       // 注册路由表 [key:value] => [route_name: route_page]
       // 有了路由表后，我们就可以使用「命名路由」来跳转界面。
       routes: {
-        "/": (context) =>
-            const MyHomePage(title: "🍊 Lab x Flutter Demo Home Page"),
+        "/": (context) => const MyHomePage(title: "🍊 Lab x Flutter Demo Home Page"),
         "new_page": (context) => NewRoute(),
         "named_route": (context) => EchoRoute(),
         "basic_component": (context) => BasicComponentPage(),
@@ -50,6 +50,7 @@ class MainApp extends StatelessWidget {
         "scrollable_component": (context) => const ScrollableComponentPage(),
         "grid_component": (context) => const GridViewTest(),
         "page_component": (context) => const PageViewTest(),
+        "c7": (context) => const C7Page(),
       },
       // 通过 / 注册了 home 路由后，这里就可以不用再定义了。
       // home: MyHomePage(title: "🍊 Lab x Flutter Demo Home Page"),
@@ -119,8 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Builder(
               builder: (context) {
                 // 通过当前 widget 的 context 对象，向上便利 widget 树获取父级 widget
-                Scaffold scaffold =
-                    context.findAncestorWidgetOfExactType<Scaffold>()!;
+                Scaffold scaffold = context.findAncestorWidgetOfExactType<Scaffold>()!;
                 return (scaffold.appBar as AppBar).title!;
               },
             ),
@@ -138,33 +138,31 @@ class _MyHomePageState extends State<MyHomePage> {
             Image.asset('icons/lovely_doge.jpeg', width: 38, height: 38),
             ElevatedButton(
               child: const Text('Basic Component Page'),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("basic_component"),
+              onPressed: () => Navigator.of(context).pushNamed("basic_component"),
             ),
             ElevatedButton(
               child: const Text("Layout Component Page"),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("layout_component"),
+              onPressed: () => Navigator.of(context).pushNamed("layout_component"),
             ),
             ElevatedButton(
               child: const Text("Container Component Page"),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("container_component"),
+              onPressed: () => Navigator.of(context).pushNamed("container_component"),
             ),
             ElevatedButton(
               child: const Text("Scrollable Component Page"),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("scrollable_component"),
+              onPressed: () => Navigator.of(context).pushNamed("scrollable_component"),
             ),
             ElevatedButton(
               child: const Text("Grid View Page"),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("grid_component"),
+              onPressed: () => Navigator.of(context).pushNamed("grid_component"),
             ),
             ElevatedButton(
               child: const Text("Page View Page"),
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("page_component"),
+              onPressed: () => Navigator.of(context).pushNamed("page_component"),
+            ),
+            ElevatedButton(
+              child: const Text("Functional Component Page"),
+              onPressed: () => Navigator.of(context).pushNamed("c7"),
             ),
           ],
         ),
