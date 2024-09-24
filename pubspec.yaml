@@ -1,0 +1,28 @@
+# 应用或包的名称
+name: flutter_demo
+# 应用或包的描述、简介。
+description: "A new Flutter project."
+publish_to: "none"
+# 应用或包的版本号。
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+# 应用或包依赖的其他包或插件。
+dependencies:
+  flutter:
+    sdk: flutter
+  english_words: ^4.0.0
+
+# 开发环境依赖的工具包（而不是flutter应用本身依赖的包）。
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.2
+
+# flutter相关的配置选项。
+flutter:
+  uses-material-design: true
+  assets:
+    - icons/lovely_doge.jpeg
